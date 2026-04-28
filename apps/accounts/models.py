@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.template.defaultfilters import first, default
 
 
 class User(AbstractUser):
@@ -13,19 +12,16 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
     class Meta:
-        db_table = "users"
+        db_table = 'users'
         verbose_name = 'User'
-        verbose_name_plural = 'users'
-
+        verbose_name_plural = 'Users'
 
     def __str__(self):
         return self.email
-
 
     @property
     def full_name(self):
